@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #4facfe;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00c6ff;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Student Registration</h2>
+
+    <form method="post">
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Roll Number</label>
+        <input type="text" name="roll" required>
+
+        <label>Enrollment Number</label>
+        <input type="text" name="enrollment_num" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Course</label>
+        <input type="text" name="course">
+
+        <label>Department</label>
+        <input type="text" name="department">
+
+        <label>Previous Semester</label>
+        <input type="text" name="pre_sem">
+
+        <label>Total Result</label>
+        <input type="text" name="pre_sem_result">
+
+        <label>Attendance (0-100)</label>
+        <input type="number" name="attendance" min="0" max="100" required>
+
+        <label>Paid Seat</label>
+        <select name="paid" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="footer-text">
+        © Student Data Collection Form
+    </div>
+</div>
+
+</body>
+</html>
