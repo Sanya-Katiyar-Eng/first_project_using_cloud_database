@@ -1,7 +1,5 @@
-flask
+Flask
 psycopg[binary]
-gunicorn
-psycogy-pool
 python-dotenv
-
+gunicorn
 
