@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Registration Form</title>
+    <title>Student Registration</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
         }
 
-        .form-container {
+        .container {
+            width: 450px;
+            margin: 40px auto;
             background: white;
-            padding: 25px 35px;
+            padding: 25px;
             border-radius: 12px;
-            width: 400px;
             box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
         }
 
@@ -40,80 +39,90 @@
             border: 1px solid #ccc;
         }
 
-        input:focus, select:focus {
-            outline: none;
-            border-color: #4facfe;
-        }
-
         button {
             width: 100%;
             padding: 10px;
-            margin-top: 15px;
+            background: #667eea;
+            color: white;
             border: none;
             border-radius: 8px;
-            background: #4facfe;
-            color: white;
+            margin-top: 15px;
             font-size: 16px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #00c6ff;
+            background: #764ba2;
         }
 
-        .footer-text {
+        .flash {
+            background: #ffe0e0;
+            color: #900;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
             text-align: center;
-            font-size: 12px;
-            margin-top: 10px;
-            color: #555;
+        }
+
+        .success {
+            background: #e0ffe0;
+            color: #060;
         }
     </style>
 </head>
 <body>
 
-<div class="form-container">
-    <h2>Student Registration</h2>
+<div class="container">
+    <h2>🎓 Student Registration Form</h2>
 
-    <form method="post">
-        <label>Name</label>
-        <input type="text" name="name" required>
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="flash">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
 
         <label>Roll Number</label>
-        <input type="text" name="roll" required>
+        <input type="text" name="roll" placeholder="Enter roll number" required>
 
         <label>Enrollment Number</label>
-        <input type="text" name="enrollment_num" required>
+        <input type="text" name="enrollment_num" placeholder="Enter enrollment number">
 
         <label>Email</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" placeholder="Enter email" required>
 
         <label>Course</label>
-        <input type="text" name="course">
+        <input type="text" name="course" placeholder="B.Tech / BCA / MCA">
 
         <label>Department</label>
-        <input type="text" name="department">
-
-        <label>Previous Semester</label>
-        <input type="text" name="pre_sem">
-
-        <label>Total Result</label>
-        <input type="text" name="pre_sem_result">
-
-        <label>Attendance (0-100)</label>
-        <input type="number" name="attendance" min="0" max="100" required>
-
-        <label>Paid Seat</label>
-        <select name="paid" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+        <select name="department">
+            <option value="">Select Department</option>
+            <option>Computer Science</option>
+            <option>IT</option>
+            <option>Mechanical</option>
+            <option>Electrical</option>
+            <option>Civil</option>
         </select>
 
-        <button type="submit">Register</button>
-    </form>
+        <label>Previous Semester</label>
+        <input type="text" name="pre_sem" placeholder="eg: 5th Sem">
 
-    <div class="footer-text">
-        © Student Data Collection Form
-    </div>
+        <label>Previous Semester Result</label>
+        <input type="text" name="pre_sem_result" placeholder="eg: 8.2 CGPA">
+
+        <label>Attendance (%)</label>
+        <input type="number" name="attendance" placeholder="eg: 85">
+
+        <button type="submit">Submit</button>
+
+    </form>
 </div>
 
 </body>
